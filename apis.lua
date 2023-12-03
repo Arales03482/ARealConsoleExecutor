@@ -12,11 +12,6 @@ server_apis:
     GiveBTools(parent: Instance): model:GetChildren()
     BToolsExportImporter(id: number, parent: Instance, cframe: CFrame): Model
     NoCooldownSubspaceTripmine(parent: Instance, cframe: CFrame): tool
-    Ragdoll: table
-      .ragdolls = global.ragdolls or table, _G.ragdolls = .ragdolls
-      .DeathRagdoll(character: Model): nil
-      .Ragdoll(character: Model, wantedRagdollBool: bool): nil
-      .Check(name: string): bool
     SecurePrompt: table
       .__index = self
       .new(prompt: ProximityPrompt): setmetatable({
@@ -115,11 +110,6 @@ client_apis:
       .__index = self
       .GetProperties(obj: Instance): {for _ = 0, #properties do if table.find(property.Tags, 'Deprecated') and not table.find(property.Tags, 'Hidden') and not table.find(property.Tags, 'NotScriptable') then table.insert(properties, {Name = property.Name, Value = obj[property.Name]}) end end}
     LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame): Model
-    Ragdoll: table
-      .ragdolls = global.ragdolls or table, _G.ragdolls = .ragdolls
-      .DeathRagdoll(character: Model): nil
-      .Ragdoll(character: Model, wantedRagdollBool: bool): nil
-      .Check(name: string): bool
     SecurePrompt: table
       .__index = self
       .new(prompt: ProximityPrompt): setmetatable({
