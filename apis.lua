@@ -197,7 +197,7 @@ client_apis:
         addString(stack: table, s: string): nil
         toString(stack: table): reverse(stack)[1]
   .request(...): ... -- this function equals game:GetService("HttpService"):GetAsync(...) through a remotefunction on the server
-  .loadstring(...): ... -- acts like the loadstring function
+  .loadstring(code): function(...): ... -- acts like the loadstring function (also the loadstring library i got doesnt have the continue op code)
   .loadstring_server(code: string, parent: Instance, ...): Script -- acts like the loadstring function but will get executed on the server through a remotefunction on the server
   .loadstring_client(code: string, parent: Instance, ...): LocalScript -- acts like the loadstring function but will get executed on the client through a remotefunction on the server
   .loadstring_opposite(code: string, parent: Instance, ...): Script or LocalScript -- acts like the loadstring function but will get executed from the opposite type through a remotefunction on the server
