@@ -7,11 +7,11 @@ server_apis:
     RobloxProperties: table
       .__index = self
       .GetProperties(obj: Instance): {for _ = 0, #properties do if table.find(property.Tags, 'Deprecated') and not table.find(property.Tags, 'Hidden') and not table.find(property.Tags, 'NotScriptable') then table.insert(properties, {Name = property.Name, Value = obj[property.Name]}) end end}
-    LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame): Model
-    LoadModel(id: number, parent: Instance, cframe: CFrame): model:GetChildren()
+    LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame : optional): Model
+    LoadModel(id: number, parent: Instance, cframe: CFrame : optional): model:GetChildren()
     GiveBTools(parent: Instance): model:GetChildren()
-    BToolsExportImporter(id: number, parent: Instance, cframe: CFrame): Model
-    NoCooldownSubspaceTripmine(parent: Instance, cframe: CFrame): tool
+    BToolsExportImporter(id: number, parent: Instance, cframe: CFrame : optional): Model
+    NoCooldownSubspaceTripmine(parent: Instance, cframe: CFrame : optional): tool
     SecurePrompt: table
       .__index = self
       .new(prompt: ProximityPrompt): setmetatable({
@@ -114,7 +114,7 @@ client_apis:
     RobloxProperties: table
       .__index = self
       .GetProperties(obj: Instance): {for _ = 0, #properties do if table.find(property.Tags, 'Deprecated') and not table.find(property.Tags, 'Hidden') and not table.find(property.Tags, 'NotScriptable') then table.insert(properties, {Name = property.Name, Value = obj[property.Name]}) end end}
-    LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame): Model
+    LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame : optional): Model
     SecurePrompt: table
       .__index = self
       .new(prompt: ProximityPrompt): setmetatable({
