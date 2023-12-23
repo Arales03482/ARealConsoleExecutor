@@ -104,6 +104,7 @@ server_apis:
   .loadstring_server(code: string, parent: Instance, ...): Script -- acts like the loadstring function but will get executed on the server
   .loadstring_client(code: string, parent: Instance, ...): LocalScript -- acts like the loadstring function but will get executed on the client
   .loadstring_opposite(code: string, parent: Instance, ...): Script or LocalScript -- acts like the loadstring function but will get executed from the opposite type
+  .getgenv(): table -- each player has 2 of these client and server (each player without the gui only has a client one)
   .owner: Player -- the player that executed the script
 client_apis:
   custom_data: table
@@ -201,4 +202,5 @@ client_apis:
   .loadstring_server(code: string, parent: Instance, ...): Script -- acts like the loadstring function but will get executed on the server through a remotefunction on the server
   .loadstring_client(code: string, parent: Instance, ...): LocalScript -- acts like the loadstring function but will get executed on the client through a remotefunction on the server
   .loadstring_opposite(code: string, parent: Instance, ...): Script or LocalScript -- acts like the loadstring function but will get executed from the opposite type through a remotefunction on the server
+  .getgenv(): table -- each player has 2 of these client and server (if executed on the client the player that runs it will have a different table but each player without the gui only has a client one)
   .owner: Player -- the player that executed the script
