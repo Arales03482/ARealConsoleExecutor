@@ -7,6 +7,8 @@ server_apis:
     RobloxProperties: table
       .__index = self
       .GetProperties(obj: Instance): {for _ = 0, #properties do if table.find(property.Tags, 'Deprecated') and not table.find(property.Tags, 'Hidden') and not table.find(property.Tags, 'NotScriptable') then table.insert(properties, {Name = property.Name, Value = obj[property.Name]}) end end}
+    RBXMFileReader: table
+      .readRBXM(binaryData): Model
     LoadCharacter(username: string, parent: Instance, isR15: bool, cframe: CFrame : optional): Model
     LoadModel(id: number, parent: Instance, cframe: CFrame : optional): model:GetChildren()
     GiveBTools(parent: Instance): model:GetChildren()
