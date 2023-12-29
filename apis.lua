@@ -100,12 +100,24 @@ server_apis:
         addString(stack: table, s: string): nil
         toString(stack: table): reverse(stack)[1]
   .request(...): ... -- this function equals game:GetService("HttpService"):GetAsync(...)
+  .post(...): ... -- this function equals game:GetService("HttpService"):PostAsync(...)
   .loadstring(code): function(...): ... -- acts like the loadstring function (also the loadstring library i got doesnt have the continue op code)
   .loadstring_server(code: string, parent: Instance, ...): Script -- acts like the loadstring function but will get executed on the server
   .loadstring_client(code: string, parent: Instance, ...): LocalScript -- acts like the loadstring function but will get executed on the client
   .loadstring_opposite(code: string, parent: Instance, ...): Script or LocalScript -- acts like the loadstring function but will get executed from the opposite type
   .getgenv(): table -- each player has 2 of these client and server (each player without the gui only has a client one)
+  .printidentity(): nil -- this function prints the current script identity
+  .LoadLibrary(utilName): ... -- only has rbxutility (create function only) for now
   .owner: Player -- the player that executed the script
+  .game = { -- remember this is the script enviroment
+    .CoreGui: ScreenGui
+    .service = game:GetService
+    .GetService = game:GetService
+    :GetObjects(assetId): {...} -- a table containing all assets (cannot import script source i might try to fix that)
+    :HttpGet(...): ... -- this function equals the request function
+    :PostAsync(...): ... -- this function equals the post function
+    ... -- default game namecalls
+  }
 client_apis:
   custom_data: table
     Hash: table -- hash library from https://github.com/Egor-Skriptunoff/pure_lua_SHA
@@ -198,9 +210,21 @@ client_apis:
         addString(stack: table, s: string): nil
         toString(stack: table): reverse(stack)[1]
   .request(...): ... -- this function equals game:GetService("HttpService"):GetAsync(...) through a remotefunction on the server
+  .post(...): ... -- this function equals game:GetService("HttpService"):PostAsync(...) through a remotefunction on the server
   .loadstring(code): function(...): ... -- acts like the loadstring function (also the loadstring library i got doesnt have the continue op code)
   .loadstring_server(code: string, parent: Instance, ...): Script -- acts like the loadstring function but will get executed on the server through a remotefunction on the server
   .loadstring_client(code: string, parent: Instance, ...): LocalScript -- acts like the loadstring function but will get executed on the client through a remotefunction on the server
   .loadstring_opposite(code: string, parent: Instance, ...): Script or LocalScript -- acts like the loadstring function but will get executed from the opposite type through a remotefunction on the server
   .getgenv(): table -- each player has 2 of these client and server (if executed on the client the player that runs it will have a different table but each player without the gui only has a client one)
+  .printidentity(): nil -- this function prints the current script identity
+  .LoadLibrary(utilName): ... -- only has rbxutility (create function only) for now
   .owner: Player -- the player that executed the script
+  .game = { -- remember this is the script enviroment
+    .CoreGui: ScreenGui
+    .service = game:GetService
+    .GetService = game:GetService
+    :GetObjects(assetId): {...} -- a table containing all assets (cannot import script source i might try to fix that)
+    :HttpGet(...): ... -- this function equals the request function
+    :PostAsync(...): ... -- this function equals the post function
+    ... -- default game namecalls
+  }
